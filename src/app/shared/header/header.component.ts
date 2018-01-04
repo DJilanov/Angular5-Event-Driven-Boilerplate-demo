@@ -11,9 +11,15 @@ const sharredOptions = {};
 })
 export class HeaderComponent {
 
+	search = false;
+
 	constructor(
 		private eventBusService: EventBusService,
 	) {
-		this.eventBusService.emitChangeSharedOptions(sharredOptions);
+		this.eventBusService.changeSharedOptions.subscribe((options) => this.updateSharedOptions(options));
+	}
+
+	updateSharedOptions(options) {
+		this.search = options.search || false;
 	}
 }

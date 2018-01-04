@@ -12,8 +12,6 @@ import { ErrorHandlerService } from './core/error-handler/error-handler.service'
 })
 export class AppComponent {
 
-	showCartIcon = false
-
 	constructor(
 		private backendService: BackendService,
 		private eventBusService: EventBusService,
@@ -28,7 +26,7 @@ export class AppComponent {
 	}
 
 	updateSharedOptions(options) {
-		this.showCartIcon = options.showCartIcon || false;
+		
 	}
 
 	ngOnInit() {
