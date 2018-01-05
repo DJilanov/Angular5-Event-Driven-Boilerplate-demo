@@ -60,19 +60,107 @@
             <h4 id="how-translation-works">
                 <div>How translation works<a class="anchorjs-link " href="#how-translation-works" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div>
             </h4>
-            <p>TODO</p>
+            <p>You just need to place our translate directive
+                <code>[translate]</code>over the text container and your json translations into 
+                <code>app/shared/translation/languages</code>. You can change the default language from English into the service.
+            </p>
             <h4 id="how-event-bus-works">
                 <div>How event-bus works<a class="anchorjs-link " href="#how-event-bus-works" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div>
             </h4>
-            <p>TODO</p>
+            <p>Simple example how the event bus works is our error handling:</p>
+            <pre ngNonBindable>
+                <code class="language-js" data-lang="js">
+                    <span class="d-none">{{</span>
+                        this.eventBusService.emitRequestError({
+                            errorMessage: errorMessage
+                        });
+                    <span class="d-none">}}</span>
+                </code>
+            </pre>
+            <p>We send a simple event via the bus and the data will be usable by just subscribing like:</p>
+            <pre ngNonBindable>
+                <code class="language-js" data-lang="js">
+                    <span class="d-none">{{</span>
+                        this.eventBusService.requestError.subscribe(
+                            (data) => this.showError(data)
+                        );
+                    <span class="d-none">}}</span>
+                </code>
+            </pre>
+            <p>You are able to transfer data between component without any hierarchy with much higher maintainability while keeping it easy to debug by having one source of truth</p>
             <h4 id="how-error-handler-works">
                 <div>How error-handler works<a class="anchorjs-link " href="#how-error-handler-works" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div>
             </h4>
-            <p>TODO</p>
+            <p>When we call for something from the back-end in our services, our code usually looks like this:</p>
+            <pre ngNonBindable>
+                <code class="language-js" data-lang="js">
+                    <span class="d-none">{{</span>
+                    this.backendService.getSomething(arg1, arg2, ....)
+                        .subscribe(
+                            response => {
+                                // do something on success
+                            },
+                            error => {
+                                // do something on error
+
+                                // ...
+
+                                // send the error by the error handler service where it 
+                                // is send to the error-handler component via the event bus 
+                                this.errorHandlerService.handleRequestError(error);
+                            },
+                            () => {
+                                // do something then
+                            }
+                        );
+                    <span class="d-none">}}</span>
+                </code>
+            </pre>
+            <p>The whole idea of the Error handler service is to controll all the ways we show to the client, that something happened by showing a single dialog in the bottom of the page to a full custom retry functionality you are free to experiment by your self by sending the correct event bus messages and expanding the 2 services</p>
             <h4 id="what-packages-do-we-use">
                 <div>What packages do we use<a class="anchorjs-link " href="#what-packages-do-we-use" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div>
             </h4>
-            <p>TODO</p>
+            <details>
+                <summary class="text-primary mb-3">Show packages</summary>
+                <ul>
+                    <li>@angular/animations-v5.0.2</li>
+                    <li>@angular/common-v5.0.2</li>
+                    <li>@angular/compiler-v5.0.2</li>
+                    <li>@angular/compiler-cli-v5.0.2</li>
+                    <li>@angular/core-v5.0.2</li>
+                    <li>@angular/forms-v5.0.2</li>
+                    <li>@angular/http-v5.0.2</li>
+                    <li>@angular/platform-browser-v5.0.2</li>
+                    <li>@angular/platform-browser-dynamic-v5.0.2</li>
+                    <li>@angular/router-v5.0.2</li>
+                    <li>@angular/cli-v1.4.4</li>
+                    <li>@types/grecaptcha-v2.0.31</li>
+                    <li>@types/hammerjs-v2.0.34</li>
+                    <li>@types/jasmine-v2.5.40</li>
+                    <li>@types/node-v7.0.0</li>
+                    <li>@types/protractor-v4.0.0</li>
+                    <li>@types/selenium-webdriver-v2.53.39</li>
+                    <li>@types/source-map-v0.5.0</li>
+                    <li>@types/uglify-js-v2.6.28</li>
+                    <li>core-js-v2.4.1</li>
+                    <li>rxjs-v5.5.2</li>
+                    <li>zone.js-v0.8.10</li>
+                    <li>typescript-v2.5.1</li>
+                    <li>jasmine-core-v2.8.0</li>
+                    <li>jasmine-spec-reporter-v4.2.1</li>
+                    <li>karma-v2.0.0</li>
+                    <li>karma-chrome-launcher-v2.2.0</li>
+                    <li>karma-cli-v1.0.1</li>
+                    <li>karma-coverage-istanbul-reporter-v0.2.0</li>
+                    <li>karma-jasmine-v1.1.1</li>
+                    <li>karma-jasmine-html-reporter-v0.2.2</li>
+                    <li>node-sass-v4.5.2</li>
+                    <li>protractor-v5.2.2</li>
+                    <li>ts-node-v4.1.0</li>
+                    <li>tslint-v5.8.0</li>
+                    <li>codelyzer-v4.0.2</li>
+                </ul>
+            </details>
 
             <h2 id="project-structure">
                 <div>Project structure<a class="anchorjs-link " href="#project-structure" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;"></a></div>
@@ -142,10 +230,10 @@
                         </ul>
                     </li>
                     <li>
-                        .angular-cli.json.json - Contains all of the build procedures.
+                        package.json - Contains all of the used packages.
                     </li>
                     <li>
-                        package.json - Contains all of the used packages.
+                        .angular-cli.json.json - Contains all of the build procedures.
                     </li>
                 </ul>
             </code>

@@ -13,7 +13,7 @@ import { FeedbackModule } from './feedback/feedback.module';
 import { AppComponent } from './app.component';
 import { DocsPageComponent } from './docs-page/docs-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { ExamplePageComponent } from './example-page/example-page.component';
+import { ComponentsPageComponent } from './components-page/components-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
@@ -21,8 +21,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 		AppComponent,
 		DocsPageComponent,
 		HomePageComponent,
-		ExamplePageComponent,
-		ContactPageComponent
+		ContactPageComponent,
+		ComponentsPageComponent
 	],
 	imports: [
 		AppRoutingModule,
