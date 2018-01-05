@@ -7,12 +7,18 @@ import { Injectable, EventEmitter } from '@angular/core';
  */
 export class EventBusService {
 
+	public changeRoute: EventEmitter<any>;
 	public requestError: EventEmitter<any>;
 	public changeSharedOptions: EventEmitter<any>;
 
 	constructor() {
+		this.changeRoute = new EventEmitter();
 		this.requestError = new EventEmitter();
 		this.changeSharedOptions = new EventEmitter();
+	}
+	
+	public emitChangeRoute(data) {
+		this.changeRoute.emit(data);
 	}
 
 	public emitRequestError(data) {

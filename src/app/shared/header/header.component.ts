@@ -17,8 +17,9 @@ export class HeaderComponent {
 	constructor(
 		private eventBusService: EventBusService,
 	) {
-		// TODO: Add listener to route or transfer info about the active tab via event bus
-		this.eventBusService.changeSharedOptions.subscribe((options) => this.updateSharedOptions(options));
+		this.eventBusService.changeRoute.subscribe(
+			(tab) => this.makeActiveTab(tab.replace('/', '').split('#')[0])
+		);
 	}
 
 	updateSharedOptions(options) {

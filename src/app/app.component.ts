@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+
 import { BackendService } from './core/backend/backend.service';
 
 import { EventBusService } from './core/event-bus/event-bus.service';
@@ -13,12 +15,22 @@ import { ErrorHandlerService } from './core/error-handler/error-handler.service'
 export class AppComponent {
 
 	constructor(
+		private router: Router,
 		private backendService: BackendService,
 		private eventBusService: EventBusService,
 		private errorHandlerService: ErrorHandlerService,
 		private utilityService: UtilityService,
 	) {
-		this.eventBusService.changeSharedOptions.subscribe((options) => this.updateSharedOptions(options));
+		this.eventBusService.changeSharedOptions.subscribe(
+			(options) => this.updateSharedOptions(options)
+		);
+		this.router.events.subscribe(
+			(event) => {
+				if(event instanceof NavigationStart) {
+					this.eventBusService.emitChangeRoute(event.url);
+				}
+			}
+		);
 	}
 
 	isSmallDevice(): boolean {
