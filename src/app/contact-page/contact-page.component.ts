@@ -5,7 +5,9 @@ import { BackendService } from '../core/backend/backend.service';
 import { ErrorHandlerService } from '../core/error-handler/error-handler.service';
 import { EventBusService } from '../core/event-bus/event-bus.service';
 
-const sharredOptions = {};
+const sharredOptions = {
+	search: false
+};
 
 @Component({
 	selector: 'app-contact-page',

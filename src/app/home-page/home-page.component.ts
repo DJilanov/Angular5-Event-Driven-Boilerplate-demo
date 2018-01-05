@@ -6,9 +6,7 @@ import { ErrorHandlerService } from '../core/error-handler/error-handler.service
 import { EventBusService } from '../core/event-bus/event-bus.service';
 
 const sharredOptions = {
-	profileBtn: true,
-	info: true,
-	hamburgerBtn: true
+	search: false
 };
 
 @Component({
