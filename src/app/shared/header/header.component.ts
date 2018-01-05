@@ -12,14 +12,20 @@ const sharredOptions = {};
 export class HeaderComponent {
 
 	search = false;
+	activeTab = 'home';
 
 	constructor(
 		private eventBusService: EventBusService,
 	) {
+		// TODO: Add listener to route or transfer info about the active tab via event bus
 		this.eventBusService.changeSharedOptions.subscribe((options) => this.updateSharedOptions(options));
 	}
 
 	updateSharedOptions(options) {
 		this.search = options.search || false;
+	}
+
+	makeActiveTab(tab) {
+		this.activeTab = tab;
 	}
 }

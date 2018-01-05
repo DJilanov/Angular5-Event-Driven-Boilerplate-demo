@@ -26,7 +26,7 @@ const routes: Routes = [
 		component: ExamplePageComponent
 	},
 	{
-		path: 'contact',
+		path: 'about-me',
 		component: ContactPageComponent
 	},
 	{

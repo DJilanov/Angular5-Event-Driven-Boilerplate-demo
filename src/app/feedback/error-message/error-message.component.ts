@@ -18,24 +18,6 @@ declare var $: any;
 				style({ transform: 'translateY(0)' }),
 				animate('300ms', style({ transform: 'translateY(100%)' }))
 			])
-		]),
-		trigger('fadeInThanks', [
-			transition(':enter', [
-				style({ opacity: 0 }),
-				animate('500ms', style({ opacity: 1 }))
-			])
-		]),
-		trigger('expandForm', [
-			transition(':enter', [
-				style({ height: 0, margin: 0 }),
-				animate('300ms', style({ height: '*', margin: '*' }))
-			])
-		]),
-		trigger('moveToHideRetry', [
-			transition(':leave', [
-				style({ height: '*', opacity: 0, margin: '*', padding: '*' }),
-				animate('300ms', style({ height: 0, margin: 0, padding: 0 }))
-			])
 		])
 	],
 	templateUrl: './error-message.component.html',
