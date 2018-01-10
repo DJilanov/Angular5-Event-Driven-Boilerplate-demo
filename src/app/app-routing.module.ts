@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageComponent } from './home-page/home-page.component';
-import { ComponentsPageComponent } from './components-page/components-page.component';
+import { SugestionsPageComponent } from './suggestions-page/suggestions-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { DocsPageComponent } from './docs-page/docs-page.component';
 import { ServerErrorPageComponent } from './feedback/server-error-page/server-error-page.component';
@@ -21,10 +21,10 @@ const routes: Routes = [
 		path: 'docs',
 		component: DocsPageComponent
 	},
-	// {
-	// 	path: 'components',
-	// 	component: ComponentsPageComponent
-	// },
+	{
+		path: 'style-guide-and-suggestions',
+		component: SugestionsPageComponent
+	},
 	{
 		path: 'about-me',
 		component: ContactPageComponent

@@ -10,11 +10,11 @@ const sharredOptions = {
 };
 
 @Component({
-	selector: 'app-components-page',
-	templateUrl: './components-page.component.html',
-	styleUrls: ['./components-page.component.scss']
+	selector: 'app-suggestions-page',
+	templateUrl: './suggestions-page.component.html',
+	styleUrls: ['./suggestions-page.component.scss']
 })
-export class ComponentsPageComponent {
+export class SugestionsPageComponent {
 
 	constructor(
 		private router: Router,
