@@ -28,7 +28,7 @@
     "zone.js": "0.8.10"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.4",
+    "@angular/cli": "1.6.4",
     "@types/grecaptcha": "2.0.31",
     "@types/hammerjs": "2.0.34",
     "@types/jasmine": "2.5.40",

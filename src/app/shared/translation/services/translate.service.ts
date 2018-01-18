@@ -1,26 +1,29 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { Subject } from 'rxjs/Subject';
 
+import { EventBusService } from '../../../core/event-bus/event-bus.service';
+
 declare function require(url: string);
 
+const defaultLanguage = 'EN';
 const english = require('../languages/lang-en.json');
 const bulgarian = require('../languages/lang-bg.json');
 
 @Injectable()
 export class TranslateService {
-    public OnLanguageChange: Subject<String>
-        = new Subject<String>();
-
     private language: string;
 
-    public changeLanguage(language: string) {
-        this.language = language;
-        
-        this.OnLanguageChange.next(this.language);
+    constructor(
+        private eventBusService: EventBusService
+    ) {
+        this.language = defaultLanguage
+	}
+
+    public changeLanguage(eventData) {
+        this.language = eventData.language || defaultLanguage;
     }
 
     public translate(text) {
-
         switch (this.language) {
             case 'EN':
                 text = english[text] || text;
