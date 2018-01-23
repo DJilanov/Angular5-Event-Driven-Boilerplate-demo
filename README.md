@@ -12,7 +12,7 @@ To start with the boilerplate, just follow the steps:
 4. If the end of the build tells you 'webpack: Compiled successfully.' you are ready to go!
 
 
-###Docs
+### Docs
 
 You can read how everything works in the website of the boilerplate
 
