@@ -16,9 +16,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SugestionsPageComponent } from './suggestions-page/suggestions-page.component';
 
-import { TranslateService } from './shared/translation/services/translate.service';
-import { TranslateDirective } from './shared/translation/directives/translate.directive';
-
 @NgModule({
 	declarations: [
 		AppComponent,
