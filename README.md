@@ -1,6 +1,7 @@
 ## Description
 Get started with Angular 5 boilerplate that utilize service bus architecture, that helps you to build responsive, bulletproof projects on the web with the boilerplate that is great from the smallest to atomic projects
 
+![Under development](https://img.shields.io/badge/under-development-orange.svg?style=for-the-badge)
 ### Quick start
 Looking to quickly use that boilerplate for your project? Just [clone the boilerplate from GitHub](https://github.com/DJilanov/Angular5-event-driven-boilerplate). All you need is NPM to install the modules and you are ready to go!
 
@@ -18,8 +19,10 @@ You can read how everything works in the website of the boilerplate
 
 ## Known issues
 
-1. If you are using windows and doesn't have Visual Studio, you are most likely recieving:
-    MSBUILD : error MSB3428: Could not load the Visual C++ component "VCBuild.exe" 
+1. If you are using Windows and don't have Visual Studio, you are most likely receiving:
 
-This error is comning from the SASS module and it is easy fixable by doing this using administrator:
-    npm install --global --production windows-build-tools
+```MSBUILD : error MSB3428: Could not load the Visual C++ component "VCBuild.exe"```
+
+This error is coming from the SASS module and it is easy fixable by doing this using administrator rights:
+
+```npm install --global --production windows-build-tools```
