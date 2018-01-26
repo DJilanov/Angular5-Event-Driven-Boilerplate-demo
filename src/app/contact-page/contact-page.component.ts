@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BackendService } from '../core/backend/backend.service';
@@ -14,7 +14,7 @@ const sharredOptions = {
 	templateUrl: './contact-page.component.html',
 	styleUrls: ['./contact-page.component.scss']
 })
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit {
 
 	constructor(
 		private router: Router,
@@ -23,5 +23,9 @@ export class ContactPageComponent {
 		private errorHandlerService: ErrorHandlerService
 	) {
 		this.eventBusService.emitChangeSharedOptions(sharredOptions);
+	}
+	
+	ngOnInit() {
+		this.eventBusService.emitTranslate({});
 	}
 }

@@ -11,7 +11,7 @@ import { throwIfAlreadyLoaded } from '../core/module-import-guard';
 @NgModule({
     imports: [
         RouterModule,
-        CommonModule,
+        CommonModule
     ],
     exports: [
         HeaderComponent,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
 import { BackendService } from './core/backend/backend.service';
@@ -12,7 +12,7 @@ import { ErrorHandlerService } from './core/error-handler/error-handler.service'
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 	constructor(
 		private router: Router,
@@ -42,6 +42,6 @@ export class AppComponent {
 	}
 
 	ngOnInit() {
-
+		this.eventBusService.emitTranslate({});
 	}
 }
