@@ -1,6 +1,9 @@
 ## Description
 Get started with Angular 5 boilerplate that utilize service bus architecture, that helps you to build responsive, bulletproof projects on the web with the boilerplate that is great from the smallest to atomic projects
 
+## Web page
+http://angular5boilerplate.jilanov.com/
+
 ![Under development](https://img.shields.io/badge/under-development-orange.svg?style=for-the-badge)
 ### Quick start
 Looking to quickly use that boilerplate for your project? Just [clone the boilerplate from GitHub](https://github.com/DJilanov/Angular5-event-driven-boilerplate). All you need is NPM to install the modules and you are ready to go!
